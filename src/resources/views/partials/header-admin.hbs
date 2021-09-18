@@ -1,0 +1,59 @@
+<div id="wrapper">
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="brand">
+			<a href="/admin"><img src="img/logo.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+		</div>
+		<div class="container-fluid">
+			<div class="navbar-btn">
+				<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+			</div>
+			<form class="navbar-form navbar-left">
+				<div class="input-group">
+					<input type="text" value="" class="form-control" placeholder="Search dashboard...">
+					<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+				</div>
+			</form>
+			<div id="navbar-menu">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span>{{user.firstname}} {{user.lastname}}</span>
+							<i class="icon-submenu lnr lnr-chevron-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/account/change-password"><i class="lnr lnr-cog"></i><span>Change password</span></a></li>
+							<li><a href="/account/logout"><i class="lnr lnr-exit"></i><span>Logout</span></a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END NAVBAR -->
+
+	<!-- LEFT SIDEBAR -->
+	<div id="sidebar-nav" class="sidebar">
+		<div class="sidebar-scroll">
+			<nav>
+				<ul class="nav">
+					<li><a href="/admin" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+					<li><a href="/admin/create-product" class=""><i class="fal fa-plus-square"></i> <span>Add
+								product</span></a></li>
+					<li><a href="/admin/create-league" class=""><i class="fal fa-plus-square"></i><span>Add
+								league</span></a></li>
+					<li><a href="/admin/create-club" class=""><i class="fal fa-plus-square"></i><span>Add
+								club</span></a></li>
+					<li><a href="/admin/trash-product" class=""><i class="fal fa-trash-alt"></i><span>Trash</span></a>
+					</li>
+					<li><a href="/admin/bill" class=""><i class="fas fa-tasks-alt"></i><span>Manage bill</span></a>
+					</li>
+					<li><a href="/" class=""><i class="fas fa-home-alt"></i><span>Home page</span></a></li>
+					<li><a href="/account/change-password" class=""><i class="fas fa-cog"></i><span>Change password</span></a></li>
+					<li><a href="/account/logout" class=""><i class="fas fa-sign-out-alt"></i><span>Log out</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- END LEFT SIDEBAR -->
+</div>

@@ -1,0 +1,146 @@
+<!-- Header Section Begin -->
+<header class="header-section">
+  <div class="header-top">
+    <div class="container">
+      <div class="ht-left">
+        <div class="mail-service">
+          <i class="fa fa-envelope"></i>
+          fashi@gmail.com
+        </div>
+        <div class="phone-service">
+          <i class="fa fa-phone"></i>
+          0901349285
+        </div>
+      </div>
+      <div class="ht-right d-flex">
+        <div class="top-social">
+          <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>
+          <a href="https://twitter.com/?lang=vi"><i class="ti-twitter-alt"></i></a>
+          <a href="https://www.linkedin.com/"><i class="ti-linkedin"></i></a>
+          <a href="https://www.pinterest.com/"><i class="ti-pinterest"></i></a>
+        </div>
+        {{#if user}}
+        <div class="dropdown mt-2 ml-2">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <span class="dropdown-item">{{user.firstname}} {{user.lastname}}</span>
+            {{#if role }}
+            <a class="dropdown-item" href="/admin"><i class="fas fa-user-shield"></i> Admin </a>
+            {{/if}}
+            <a class="dropdown-item" href="/account/change-password"><i class="fas fa-user-cog"></i> Change password</a>
+            <a class="dropdown-item" href="/account/logout"> <i class="fas fa-sign-out-alt"></i> Sign out</a>
+          </div>
+        </div>
+        {{else}}
+        <a href="account/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="inner-header">
+      <div class="row">
+        <div class="col-lg-2 col-md-2">
+          <div class="logo">
+            <a href="/">
+              <img src="img/logo.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-7">
+          <div class="advanced-search">
+            <button type="button" class="category-btn">Search product</button>
+            <div class="input-group">
+              <form method="get" action="/product/search">
+                <input type="text" placeholder="What do you need?" name="name" autocomplete="off"
+                  onkeyup="showResult(this.value)" style="color:black;height:48px" />
+                <div id="livesearch" class="hide"></div>
+                <button type="submit" style="right: -3px;top: 1px;" ><i class="ti-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 text-right col-md-3">
+          <ul class="nav-right">
+            <li class="cart-icon">
+              <a href="product/shopping-cart/{session.sessionId}">
+                <i class="icon_bag_alt"></i>
+                <span>{{totalProductsInCart}}</span>
+              </a>
+              <div class="cart-hover">
+                <div class="select-items">
+                  <table>
+                    <tbody>
+                      {{#each productsInCart}}
+                      <tr>
+                        <td class="si-pic">
+                          <a href="/product/{{this.slug}}">
+                            <img src="{{this.image}}" />
+                          </a>
+                        </td>
+                        <td class="si-text">
+                          <div class="product-selected">
+                            <p>{{this.price}}.000đ x
+                              {{this.quantityInCart}}</p>
+                            <h6 class='product-title-in-cart'>
+                              <a href="/product/{{this.slug}}">{{this.name}}</a>
+                            </h6>
+                          </div>
+                        </td>
+                        <td class="si-close remove-from-cart">
+                          <a href="/product/remove-from-cart/{{this._id}}">X</a>
+                        </td>
+                      </tr>
+                      {{else}}
+                      <h5 class="mb-4 text-center">No products in cart</h5>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="select-total">
+                  <span>total:</span>
+                  <h5>{{totalPriceInCart}}.000đ</h5>
+                </div>
+                <div class="select-button">
+                  <a href="product/shopping-cart/{session.sessionId}" class="primary-btn checkout-btn">
+                    CHECK OUT
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nav-item">
+    <div class="container">
+      <div class="nav-depart">
+        <div class="depart-btn">
+          <span>Fashi</span>
+        </div>
+      </div>
+      <nav class="nav-menu mobile-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/product">Product</a></li>
+          <li><a href="product/shopping-cart/{session.sessionId}">Shopping Cart</a></li>
+          <li><a href="product/check-out">Checkout</a></li>
+          <li><a href="#">Pages</a>
+            <ul class="dropdown">
+              <li><a href="blogs/blog-details">Blog Details</a></li>
+              <li><a href="blogs/faq">Faq</a></li>
+              <li><a href="account/register">Register</a></li>
+              <li><a href="account/login">Login</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div id="mobile-menu-wrap"></div>
+    </div>
+  </div>
+</header>
+<!-- Header End -->
