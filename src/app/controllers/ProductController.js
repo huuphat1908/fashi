@@ -9,7 +9,6 @@ const { multipleMongooseToObject } = require('../../util/mongoose')
 const { mongooseToObject } = require('../../util/mongoose')
 
 class ProductController {
-
     async checkOut(req, res) {
         try {
             res.render('product/check-out');
